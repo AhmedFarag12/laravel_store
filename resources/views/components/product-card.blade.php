@@ -14,10 +14,14 @@
          </div>
      </div>
      <div class="product-info">
-         <span class="category">{{ $product->category->name }}</span>
-         <h4 class="title">
+        @if($product->category)
+        <span class="category">{{ $product->category->name }}</span>
+            @else
+           <span class="category">Uncategorized</span> <!-- Fallback text -->
+              @endif        
+               <h4 class="title">
              <a href="{{route('products.show' , $product->slug)}}">{{ $product->name }}</a>
-         </h4>
+               </h4>
          <ul class="review">
              <li><i class="lni lni-star-filled"></i></li>
              <li><i class="lni lni-star-filled"></i></li>
